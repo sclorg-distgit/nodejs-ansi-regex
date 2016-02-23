@@ -9,7 +9,7 @@
 
 Name:           %{?scl_prefix}nodejs-ansi-regex
 Version:        2.0.0
-Release:        2%{?dist}
+Release:        5%{?dist}
 Summary:        Regular expression for matching ANSI escape codes
 Url:            https://github.com/sindresorhus/ansi-regex
 Source0:        http://registry.npmjs.org/%{npm_name}/-/%{npm_name}-%{version}.tgz
@@ -18,7 +18,7 @@ BuildArch:	noarch
 ExclusiveArch:	%{nodejs_arches} noarch
 
 BuildRequires:  %{?scl_prefix}nodejs-devel
-BuildRequires:	nodejs010-runtime
+BuildRequires:	%{?scl_prefix}runtime
 
 %if 0%{?enable_tests}
 BuildRequires: %{?scl_prefix}npm(mocha)
@@ -55,6 +55,12 @@ mocha test/test.js
 %doc readme.md license
 
 %changelog
+* Tue Feb 16 2016 Zuzana Svetlikova <zsvetlik@redhat.com> - 2.0.0-5
+- Use macro in -runtime dependency
+
+* Sun Feb 14 2016 Zuzana Svetlikova <zsvetlik@redhat.com> - 2.0.0-4
+- Rebuilt with updated metapackage
+
 * Mon Dec 14 2015 Tomas Hrcka <thrcka@redhat.com> - 2.0.0-2
 - Enable scl macros
 
